@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息索引 · 188bet 资源整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #faf6f0;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            padding: 2rem 2.5rem 3rem;
+        }
+
+        /* 顶部导航 */
+        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e7dfd6;
+            margin-bottom: 2.5rem;
+        }
+
+        .site-nav .brand {
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: #5c5147;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5c5147;
+            font-size: 0.95rem;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #a67c5b;
+            border-bottom-color: #a67c5b;
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 2.8rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+            color: #3d352e;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #6b6158;
+            max-width: 700px;
+            border-left: 4px solid #d4c3b4;
+            padding-left: 1.2rem;
+        }
+
+        .hero .subhead strong {
+            font-weight: 500;
+            color: #3d352e;
+        }
+
+        /* 核心介绍卡片 */
+        .intro-card {
+            background: #f4efe9;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .intro-card .text {
+            flex: 2;
+            min-width: 220px;
+        }
+
+        .intro-card .text p {
+            margin-bottom: 0.8rem;
+        }
+
+        .intro-card .text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card .highlight-box {
+            flex: 1;
+            min-width: 160px;
+            background: #fffcf9;
+            border-left: 5px solid #b2927a;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .highlight-box .label {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #7f6b5a;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* 三个场景模块 */
+        .scenes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .scene-item {
+            background: #fbf8f4;
+            border-radius: 18px;
+            padding: 1.8rem 1.4rem 1.6rem;
+            transition: box-shadow 0.2s;
+            border: 1px solid #eeeaE5;
+        }
+
+        .scene-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+
+        .scene-item .emoji-deco {
+            font-size: 1.7rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .scene-item h3 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #3d352e;
+            margin-bottom: 0.6rem;
+        }
+
+        .scene-item p {
+            font-size: 0.92rem;
+            color: #5c5248;
+        }
+
+        /* 引用块 / 提示框 */
+        .note-block {
+            background: #f1ede7;
+            border-radius: 16px;
+            padding: 1.6rem 2rem;
+            margin-bottom: 2.5rem;
+            border-left: 6px solid #b2927a;
+        }
+
+        .note-block p {
+            font-size: 0.98rem;
+            color: #4d443c;
+        }
+
+        .note-block .ref {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.88rem;
+            color: #7f6b5a;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px dashed #ddd6ce;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #4d4037;
+            margin-bottom: 0.2rem;
+            font-size: 0.98rem;
+        }
+
+        .faq-item .a {
+            color: #665c53;
+            font-size: 0.93rem;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e7dfd6;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8f8277;
+        }
+
+        .footer-note a {
+            color: #7f6b5a;
+            text-decoration: none;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 800px) {
+            .page-wrapper {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .scenes {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .intro-card {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+
+            .intro-card .highlight-box {
+                width: 100%;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+
+            .page-wrapper {
+                padding: 1rem 0.8rem;
+                border-radius: 18px;
+            }
+
+            .site-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero .subhead {
+                font-size: 0.95rem;
+                padding-left: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- 顶部导航 -->
+        <nav class="site-nav">
+            <span class="brand">📋 资料索引</span>
+            <div class="nav-links">
+                <a href="#intro">整理</a>
+                <a href="#scenes">场景</a>
+                <a href="#faq">说明</a>
+            </div>
+        </nav>
+
+        <!-- hero -->
+        <div class="hero">
+            <h1>围绕 188bet 的信息整理</h1>
+            <div class="subhead">
+                <strong>资料索引 · 轻量化导航</strong> — 从信息分类和常见问题的角度，梳理与 <a href="https://sites-188bet.com" style="color:#7f6b5a; text-decoration: underline;">188bet</a> 相关的内容模块，方便快速查阅。
+            </div>
+        </div>
+
+        <!-- 核心介绍卡片 -->
+        <div class="intro-card" id="intro">
+            <div class="text">
+                <p>这份页面更像是一份个人整理的资料手册，围绕 <a href="https://sites-188bet.com" style="color:#7f6b5a; text-decoration: underline;">188bet</a> 这一关键词，把分散的常见信息归纳为三个典型场景，同时附上一些使用中可能遇到的说明。</p>
+                <p>在整理的过程中，倾向采用更克制的描述，不评价优劣，只陈列事实与常见做法。希望为第一次接触或需要回顾的用户，提供一个平实的索引起点。</p>
+            </div>
+            <div class="highlight-box">
+                <span class="label">📌 索引范围</span>
+                模块索引 · 场景分类 · 常见疑问<br>
+                <span style="display:block; margin-top:0.6rem; font-size:0.85rem; color:#7b6b5d;">更新时间：2025</span>
+            </div>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <div class="scenes" id="scenes">
+            <div class="scene-item">
+                <span class="emoji-deco">📂</span>
+                <h3>资料查找与归档</h3>
+                <p>对于需要查找历史信息或保存相关页面的用户，可以先将 <a href="https://sites-188bet.com" style="color:#7f6b5a; text-decoration: underline;">188bet</a> 加入书签，再配合本地的资料归类习惯，形成个人的信息库。建议使用标签或文件夹管理，便于后续检索。</p>
+            </div>
+            <div class="scene-item">
+                <span class="emoji-deco">🔍</span>
+                <h3>功能了解与对比</h3>
+                <p>如果想了解 <a href="https://sites-188bet.com" style="color:#7f6b5a; text-decoration: underline;">188bet</a> 所提供的服务模块，可以通过浏览站点内的导航，逐步查看不同分页的说明。记录下自己关心的功能点，再与其他平台做对照，有助于形成清晰的认识。</p>
+            </div>
+            <div class="scene-item">
+                <span class="emoji-deco">💬</span>
+                <h3>信息验证与交流</h3>
+                <p>遇到不确定的内容时，建议直接参考 <a href="https://sites-188bet.com" style="color:#7f6b5a; text-decoration: underline;">188bet</a> 上的官方说明，或者与有经验的朋友交换看法。多一重确认，能减少误读，让信息获取更稳妥。</p>
+            </div>
+        </div>
+
+        <!-- 引用 / 提示框 -->
+        <div class="note-block">
+            <p>📎 资料整理提示：网络信息随时可能更新，建议以 <a href="https://sites-188bet.com" style="color:#7f6b5a; text-decoration: underline;">188bet</a> 当前页面显示的内容为准。本索引仅作参考，不构成任何操作建议或保证。</p>
+            <span class="ref">—— 基于公开信息整理 · 请自行核实</span>
+        </div>
+
+        <!-- 常见说明 (FAQ 摘要) -->
+        <div class="faq-summary" id="faq">
+            <div class="faq-item">
+                <div class="q">Q: 如何快速找到需要的内容？</div>
+                <div class="a">可以优先使用站内搜索功能，或者根据导航栏的分类逐级查看。将 <a href="https://sites-188bet.com" style="color:#7f6b5a; text-decoration: underline;">188bet</a> 首页或常用页面加入浏览器收藏夹，也能节省不少时间。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">Q: 页面信息与之前看到的不一致？</div>
+                <div class="a">网站内容可能因为维护或调整而发生变更。遇到差异时，可以检查网页末尾的版本说明，或者直接联系客服确认最新情况。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">Q: 是否可以将资料分享给朋友？</div>
+                <div class="a">分享时建议直接提供 <a href="https://sites-188bet.com" style="color:#7f6b5a; text-decoration: underline;">188bet</a> 的链接，这样对方能够看到最原始的页面。如果引用这里的整理笔记，也请注明出处，保持信息的可追溯性。</div>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-note">
+            <span>页面内容为个人整理 · 仅供参考 ｜ 源站：<a href="https://sites-188bet.com">188bet</a></span>
+        </div>
+    </div>
+</body>
+</html>
