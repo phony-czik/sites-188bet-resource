@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homeonline-fifa2026 – 世界杯观赛指引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f9fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.7;
+    }
+
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 28px 0 12px;
+      border-bottom: 1px solid #e6edf4;
+    }
+
+    nav .logo {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #1e4b6e;
+      letter-spacing: 0.3px;
+    }
+
+    nav .logo span {
+      color: #7b9cb0;
+    }
+
+    .hero {
+      margin: 48px 0 36px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #0f293d;
+      letter-spacing: -0.3px;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #3e5466;
+      max-width: 620px;
+    }
+
+    .intro-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin: 20px 0 40px;
+      box-shadow: 0 4px 14px rgba(0,20,40,0.03);
+      border: 1px solid #eef3f8;
+    }
+
+    .intro-card p {
+      margin-bottom: 16px;
+    }
+
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin: 48px 0 20px;
+      color: #1f3b4e;
+      letter-spacing: -0.2px;
+    }
+
+    .scene-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .scene-item {
+      background: white;
+      border-radius: 18px;
+      padding: 26px 28px;
+      border: 1px solid #e7edf4;
+      transition: box-shadow 0.2s;
+    }
+
+    .scene-item:hover {
+      box-shadow: 0 8px 22px rgba(0, 20, 40, 0.06);
+    }
+
+    .scene-item h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #1f3b4e;
+      margin-bottom: 8px;
+    }
+
+    .scene-item p {
+      color: #3a5368;
+      font-size: 0.98rem;
+    }
+
+    .note-box {
+      background: #f2f6fb;
+      border-radius: 18px;
+      padding: 24px 28px;
+      margin: 48px 0 40px;
+      border-left: 4px solid #7b9cb0;
+    }
+
+    .note-box h4 {
+      font-weight: 500;
+      font-size: 1.15rem;
+      color: #1e3b4f;
+      margin-bottom: 12px;
+    }
+
+    .note-box ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .note-box li {
+      padding: 6px 0;
+      color: #2c465b;
+      display: flex;
+      gap: 10px;
+    }
+
+    .note-box li::before {
+      content: "·";
+      color: #6d8fa8;
+      font-weight: 700;
+      display: inline-block;
+      width: 12px;
+    }
+
+    .faq-mini {
+      margin: 40px 0 50px;
+    }
+
+    .faq-mini details {
+      border-bottom: 1px solid #e1e9f0;
+      padding: 14px 0;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #1f3b4e;
+      cursor: pointer;
+      padding: 4px 0;
+      font-size: 1.02rem;
+    }
+
+    .faq-mini details p {
+      margin-top: 12px;
+      padding-right: 12px;
+      color: #3a5368;
+      font-size: 0.95rem;
+    }
+
+    .footnote {
+      text-align: center;
+      padding: 28px 0 42px;
+      font-size: 0.85rem;
+      color: #6c8397;
+      border-top: 1px solid #e3ebf3;
+    }
+
+    a {
+      color: #216a8e;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #216a8e;
+    }
+
+    @media (max-width: 540px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .intro-card {
+        padding: 20px 22px;
+      }
+      .scene-item {
+        padding: 20px 22px;
+      }
+      .note-box {
+        padding: 20px 22px;
+      }
+      .page-wrap {
+        padding: 0 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <nav>
+      <div class="logo">homeonline<span>·fifa2026</span></div>
+    </nav>
+
+    <div class="hero">
+      <h1>关于世界杯，<br>一个安静的出发点</h1>
+      <p>没有喧闹的弹窗，没有夸大的承诺。这里只提供有关 <a href="https://homeonline-fifa2026.com">世界杯</a> 的基础指引与信息索引，让感兴趣的人自己判断。</p>
+    </div>
+
+    <div class="intro-card">
+      <p>homeonline-fifa2026 是一个轻量内容站点，主要围绕下一届足球盛事，整理一些相对客观的观赛准备、赛程背景以及实用线索。站点由普通爱好者维护，不隶属任何官方机构，所有信息均来自可查证的公开来源。</p>
+      <p>你可以把它看作一张便签纸——上面写了几段关于 <a href="https://homeonline-fifa2026.com">世界杯</a> 的常见疑问与场景提示，没有多余装饰。</p>
+    </div>
+
+    <h2 class="section-title">三种常见使用场景</h2>
+    <div class="scene-grid">
+      <div class="scene-item">
+        <h3>赛前准备阶段</h3>
+        <p>还不确定比赛具体时间、场馆分布或票务节奏？站点整理了赛程框架、举办城市简介以及官方信息源的跳转参考，方便提前规划日程。</p>
+      </div>
+      <div class="scene-item">
+        <h3>观赛期间小助手</h3>
+        <p>比赛开始后，你可能会需要快速查看某支球队的小组对手、淘汰赛路线或当地转播平台。这些内容以清单形式组织，不用反复搜索。</p>
+      </div>
+      <div class="scene-item">
+        <h3>赛后回顾与记录</h3>
+        <p>赛事结束后，站内保留了基础数据归档和亮点回顾索引，适合写总结、做剪报或单纯回味那些难忘瞬间。</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <h4>一些值得留意的事</h4>
+      <ul>
+        <li>本站不提供购票、签证或酒店预订服务，仅作信息参考。</li>
+        <li>所有日期和时间均以官方最终公布为准，建议交叉核对。</li>
+        <li>维护者会尽力更新，但无法保证实时同步每一条动态。</li>
+        <li>如果你发现过时或错误的内容，欢迎通过站点提供的反馈渠道告知。</li>
+      </ul>
+    </div>
+
+    <div class="faq-mini">
+      <details>
+        <summary>这个站点和 FIFA 官方有关系吗？</summary>
+        <p>没有。homeonline-fifa2026 由个人维护，与 FIFA、2026 年世界杯组委会或任何官方机构无任何附属关系，内容也不代表官方立场。</p>
+      </details>
+      <details>
+        <summary>信息从哪里来？可靠吗？</summary>
+        <p>主要来自公开的新闻、官方发布会记录、主办城市官网以及体育数据平台。虽然经过筛选，但仍建议对关键信息（如开球时间、场馆变更）做二次确认。</p>
+      </details>
+      <details>
+        <summary>为什么没有广告或跳转链接？</summary>
+        <p>站点目前没有商业意图，仅希望提供一个干净的阅读空间。唯一的外链是 <a href="https://homeonline-fifa2026.com">世界杯</a> 相关内容本身。</p>
+      </details>
+    </div>
+
+    <div class="footnote">
+      <p>homeonline-fifa2026 · 一个安静的站点 · 关于世界杯的简单笔记</p>
+    </div>
+  </div>
+</body>
+</html>
