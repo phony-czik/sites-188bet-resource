@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>专题 · 世界杯资料整理 & 信息索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d2 0%, #f3d7b5 65%, #ecc9a3 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* 主卡片容器 */
+        .magazine-card {
+            max-width: 880px;
+            width: 100%;
+            background: rgba(255, 255, 245, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 48px 36px 36px;
+            box-shadow: 0 16px 40px -10px rgba(100, 60, 30, 0.25), 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem 2.8rem;
+            transition: box-shadow 0.2s;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.2rem 0.8rem; }
+            .magazine-card { padding: 1.8rem 1.2rem; border-radius: 32px; }
+        }
+
+        /* ---- 横幅 Hero 区 ---- */
+        .hero-area {
+            border-bottom: 2px solid #edd5b6;
+            padding-bottom: 1.6rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #c9a47c;
+            color: #fbf5ed;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #3b2a1b;
+            line-height: 1.2;
+            margin: 0.2rem 0 0.5rem 0;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: #6f543b;
+            border-left: 4px solid #d6b48b;
+            padding-left: 1rem;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        .hero-sub strong {
+            font-weight: 600;
+            color: #3d2b1a;
+        }
+
+        /* 背景说明卡片（带浅底色） */
+        .context-box {
+            background: #f6ebde;
+            border-radius: 24px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.8rem 0 2rem 0;
+            border-left: 6px solid #b3895e;
+        }
+
+        .context-box h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2d1f10;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .context-box p {
+            color: #3e2c1b;
+            margin-bottom: 0.4rem;
+        }
+
+        /* 三段式自然介绍 (杂志风格) */
+        .intro-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin: 1.8rem 0 2.2rem 0;
+        }
+
+        .intro-item {
+            border-bottom: 1px dashed #dcc9b4;
+            padding-bottom: 1.2rem;
+        }
+
+        .intro-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .intro-item h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #382617;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+        }
+
+        .intro-item h3 .section-marker {
+            font-size: 0.8rem;
+            background: #dbbd9d;
+            color: #2f1f0f;
+            padding: 0 0.6rem;
+            border-radius: 30px;
+            font-weight: 400;
+        }
+
+        .intro-item p {
+            color: #3f2d1c;
+            margin-top: 0.3rem;
+        }
+
+        .intro-item p a {
+            color: #7a5939;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #dbbd9d;
+            transition: background 0.2s, border-color 0.2s;
+            padding: 0 0.1rem;
+        }
+
+        .intro-item p a:hover {
+            background: #e9d3bb;
+            border-bottom-color: #7a5939;
+        }
+
+        /* FAQ 摘要 – 融合在第三段后 */
+        .faq-note {
+            background: #fcf7f0;
+            border-radius: 28px;
+            padding: 1.2rem 1.8rem;
+            margin: 1.6rem 0 2rem 0;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .faq-note details {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-note details summary {
+            font-weight: 500;
+            color: #2f1f0e;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-note details summary::before {
+            content: "▸";
+            font-size: 1.1rem;
+            color: #a98560;
+        }
+
+        .faq-note details[open] summary::before {
+            content: "▾";
+        }
+
+        .faq-note details p {
+            margin: 0.3rem 0 0.2rem 1.3rem;
+            color: #4b3620;
+            font-size: 0.95rem;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 2.2rem;
+            padding-top: 1.2rem;
+            border-top: 2px solid #e2cfbb;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #4b3823;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .footer-note .visit-label {
+            background: #cfa77b;
+            color: #faf3ea;
+            padding: 0.3rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            display: inline-block;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-note .main-link {
+            display: inline-block;
+            margin: 0.4rem 0;
+            background: #826343;
+            color: #fcf6ed;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.8rem 2.6rem;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            transition: background 0.2s, transform 0.1s ease;
+            box-shadow: 0 4px 6px rgba(90, 55, 25, 0.15);
+        }
+
+        .footer-note .main-link:hover {
+            background: #694f32;
+            transform: scale(1.02);
+        }
+
+        .footer-note .meta-hint {
+            font-size: 0.8rem;
+            color: #7b6247;
+            margin-top: 0.2rem;
+        }
+
+        .soft-break {
+            height: 0.2rem;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 460px) {
+            .hero-title { font-size: 2rem; }
+            .context-box { padding: 1.2rem; }
+            .footer-note .main-link { padding: 0.6rem 1.6rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="magazine-card">
+
+    <!-- HERO 横幅 -->
+    <div class="hero-area">
+        <span class="hero-tag">⚽ 资料专题 · 索引</span>
+        <h1 class="hero-title">从整理到索引<br>理解世界杯的另一种方式</h1>
+        <div class="hero-sub">
+            <strong>信息梳理 · 赛事脉络 · 背景档案</strong> — 基于公开资料与历史记录
+        </div>
+    </div>
+
+    <!-- 背景说明 (更深一层) -->
+    <div class="context-box">
+        <h2>📋 为什么做这样一份整理？</h2>
+        <p>每一届世界杯都会产生海量的赛程、数据、队伍沿革与主办信息。对于希望快速了解全局的读者而言，分散的资讯反而增加了查找成本。此页面尝试以“资料笔记”的方式，将零散的信息节点重新组织——不做预测、不渲染情绪，只关注可验证的赛事结构与历史事实。我们相信，清晰的索引本身就是一种支持。</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #5a3f28;">参考范围：历届决赛圈队伍、主办国轮换、赛制演变、场馆及时间线。</p>
+    </div>
+
+    <!-- 三段自然介绍 (杂志式) -->
+    <div class="intro-grid">
+
+        <div class="intro-item">
+            <h3><span class="section-marker">01</span> 赛事架构与轮换记录</h3>
+            <p>从 1930 年至今，世界杯的参赛规模、分区名额、主办城市选拔机制均有清晰的调整路径。目前 32 支决赛圈队伍的配置延续了数届，下一届将扩展至 48 支。主办国的轮换遵循各大洲足联的次序，这部分信息在 <a href="https://homesports-fifa2026.com">世界杯</a> 专题页中有更细致的届次对照与时间轴整理。对于想追溯某一届主办背景或赛制变化的读者，这样的索引结构比零散搜索更高效。</p>
+        </div>
+
+        <div class="intro-item">
+            <h3><span class="section-marker">02</span> 参赛队伍与历史数据</h3>
+            <p>每届世界杯的参赛队都承载着各自的预选赛历程与决赛圈表现。我们整理了近五届赛事中所有队伍的小组赛战绩、淘汰赛阶段分布以及最佳成绩记录。这些数据不包含主观评级，只展示实际对阵结果与最终排名。若你希望核对某支球队的历届参赛记录，或对比不同年代同区域的晋级情况，可直接在资料索引中按年份或大洲筛选。所有原始统计均来自公开赛事报告。</p>
+        </div>
+
+        <div class="intro-item">
+            <h3><span class="section-marker">03</span> 场馆、时间与转播信息</h3>
+            <p>大型赛事的承办场馆群、比赛时间分布以及持权转播商的更迭，同样是理解世界杯全球影响力的侧面。本索引标注了每一届决赛场地容量、开闭幕式时间及不同地区的转播覆盖区域。对于研究者或媒体从业者而言，这些基础参数往往比即时新闻更具参考价值。值得再次提及的是，核心的赛事档案与整理版块都集中在 <a href="https://homesports-fifa2026.com">世界杯</a> 专属页面，结构按大洲和年份双重索引，便于交叉查阅。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 (融入在自然段落之后) -->
+    <div class="faq-note">
+        <details>
+            <summary>为什么这一版没有列出具体球队排名或预测？</summary>
+            <p>本页定位为资料索引与结构说明，不涉及任何预测或主观排名。所有引用的历史数据均来自公开的比赛结果，不包含推测性内容。</p>
+        </details>
+        <details>
+            <summary>信息更新频率是怎样的？</summary>
+            <p>随着预选赛进程和官方赛程确认，索引内容会相应补充。建议以 <a href="https://homesports-fifa2026.com" style="color:#7a5939; text-decoration: underline;">世界杯</a> 主页面标注的版本日期为准。</p>
+        </details>
+        <details>
+            <summary>移动端查看体验如何？</summary>
+            <p>所有卡片布局均适配窄屏，字体和间距做了响应式调整，可在手机或平板上正常浏览。</p>
+        </details>
+    </div>
+
+    <!-- 页尾访问提示 (链接按钮风格) -->
+    <div class="footer-note">
+        <span class="visit-label">⚑ 深入信息索引</span>
+        <a href="https://homesports-fifa2026.com" class="main-link">世界杯</a>
+        <div class="meta-hint">完整赛事档案 · 逐年对照 · 公开资料汇编</div>
+    </div>
+
+</div>
+
+<!-- 极简脚注 (非必要但增加完成度) -->
+<div style="text-align: center; font-size: 0.75rem; color: #7b6247; opacity: 0.7; padding: 0.8rem 0 0.2rem 0; max-width: 880px;">
+    专题编纂 · 信息整理 · 不构成任何官方立场
+</div>
+
+</body>
+</html>
